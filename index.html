@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Roast & Ridge | Small-Batch Artisan Coffee</title>
+<meta name="description" content="Small-batch, single-origin coffee roasted weekly. Shop Ethiopian, Colombian, Sumatran and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo">Roast <span>&</span> Ridge</a>
+    <nav class="main-nav">
+      <a href="#shop">Shop</a>
+      <a href="#about">Our Story</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button id="cart-toggle" class="cart-toggle" aria-label="Open cart">
+      🛒 <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Small-batch &middot; Single-origin &middot; Roasted weekly</p>
+      <h1>Coffee that tastes like where it's from.</h1>
+      <p class="hero-sub">We source directly from farmers, roast in micro-batches, and ship within 48 hours of roasting — so every cup tastes like it just came off the drum.</p>
+      <a href="#shop" class="btn btn-primary">Shop the collection</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80" alt="Fresh roasted coffee beans in a bag" loading="eager" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT GRID ===== -->
+<section id="shop" class="shop-section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Our Coffees</h2>
+      <p id="db-status" class="db-status">Loading products…</p>
+    </div>
+    <div id="product-grid" class="product-grid">
+      <!-- product cards injected by script.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about-section">
+  <div class="container about-inner">
+    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80" alt="Coffee farmer sorting beans" loading="lazy" />
+    <div>
+      <h2>Why we started Roast & Ridge</h2>
+      <p>Roast & Ridge began as a class project exploring what it takes to bring a product online end-to-end: sourcing, presenting, and selling it through a real web storefront. We picked coffee because it's a product people already love shopping for — vivid origin stories, distinct flavor notes, and a purchase people happily repeat.</p>
+      <p>Every bag on this site is roasted in small batches and priced to reflect direct trade with growing regions across Africa and Latin America.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is this a real, working store?</summary>
+      <p>This is a demo storefront built to showcase a full shopping flow — product catalog, cart, and checkout. <strong>No real payments are processed.</strong> The checkout form is a simulation for demonstration purposes only.</p>
+    </details>
+    <details>
+      <summary>Where does the product data come from?</summary>
+      <p>Product details are stored in a Supabase (PostgreSQL) database and loaded live when the page opens.</p>
+    </details>
+    <details>
+      <summary>How fresh is the coffee (in the demo story)?</summary>
+      <p>In our fictional supply chain, beans ship within 48 hours of roasting.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Roast & Ridge. Demo project — no real transactions occur on this site.</p>
+  </div>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button id="cart-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div id="cart-items" class="cart-items">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-subtotal-amount">$0.00</span>
+    </div>
+    <button id="checkout-btn" class="btn btn-primary btn-full" disabled>Checkout</button>
+  </div>
+</aside>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div id="checkout-overlay" class="cart-overlay"></div>
+<div id="checkout-modal" class="checkout-modal" aria-hidden="true">
+  <div class="checkout-modal-inner">
+    <button id="checkout-close" class="modal-close" aria-label="Close checkout">&times;</button>
+
+    <div id="checkout-form-view">
+      <h3>Checkout <span class="demo-badge">DEMO — no real payment</span></h3>
+      <div class="checkout-body">
+        <form id="checkout-form">
+          <fieldset>
+            <legend>Shipping Information</legend>
+            <label>Full Name
+              <input type="text" name="fullName" required placeholder="Jane Doe" />
+            </label>
+            <label>Email
+              <input type="email" name="email" required placeholder="jane@example.com" />
+            </label>
+            <label>Address
+              <input type="text" name="address" required placeholder="123 Main St" />
+            </label>
+            <div class="form-row">
+              <label>City
+                <input type="text" name="city" required placeholder="Phnom Penh" />
+              </label>
+              <label>ZIP / Postal Code
+                <input type="text" name="zip" required placeholder="12000" />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment (simulated — not processed)</legend>
+            <label>Card Number
+              <input type="text" name="cardNumber" required placeholder="4242 4242 4242 4242" maxlength="19" />
+            </label>
+            <div class="form-row">
+              <label>Expiry
+                <input type="text" name="expiry" required placeholder="MM/YY" maxlength="5" />
+              </label>
+              <label>CVC
+                <input type="text" name="cvc" required placeholder="123" maxlength="4" />
+              </label>
+            </div>
+            <p class="payment-disclaimer">🔒 This is a simulated payment field for demonstration only. No card data is transmitted, stored, or charged.</p>
+          </fieldset>
+
+          <div id="checkout-summary" class="checkout-summary"></div>
+
+          <button type="submit" class="btn btn-primary btn-full">Place Demo Order</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="checkout-success-view" class="checkout-success" hidden>
+      <div class="success-icon">✓</div>
+      <h3>Order Confirmed (Demo)</h3>
+      <p>Thanks, <span id="success-name"></span>! Your simulated order <strong id="success-order-id"></strong> has been recorded.</p>
+      <p class="success-note">No real payment was processed and no product will be shipped — this is a class project demonstration.</p>
+      <button id="checkout-done-btn" class="btn btn-primary">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
